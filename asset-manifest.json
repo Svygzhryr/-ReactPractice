@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Increment/static/css/main.70c4fdc3.css",
+    "main.js": "/Increment/static/js/main.a11f58c8.js",
+    "index.html": "/Increment/index.html",
+    "main.70c4fdc3.css.map": "/Increment/static/css/main.70c4fdc3.css.map",
+    "main.a11f58c8.js.map": "/Increment/static/js/main.a11f58c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70c4fdc3.css",
+    "static/js/main.a11f58c8.js"
+  ]
+}
