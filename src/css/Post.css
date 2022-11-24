@@ -1,0 +1,13 @@
+.post {
+    border: gold 3px solid;
+    margin: 10px 0;
+}
+
+.post__content {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.post__btns {
+
+}
