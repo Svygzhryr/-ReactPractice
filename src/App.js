@@ -4,6 +4,7 @@ import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 import PostFilter from './components/PostFilter';
 import MyModal from './UI/MyModal/MyModal';
+import MyButton from './UI/button/MyButton'
 
 function App() {
 
@@ -36,7 +37,8 @@ function App() {
 
   return (
     <div className='App'>
-      <MyModal visible={true}>
+      <MyButton>Создать пользователя</MyButton>
+      <MyModal visible={modal} setVisible={setModal}>
         <PostForm create={createPost}/>
       </MyModal>
       <hr style={{margin: '15px 10px'}}></hr>
