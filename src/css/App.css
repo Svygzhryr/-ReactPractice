@@ -21,3 +21,16 @@ button {
   justify-content: center;
   margin: 10px;
 }
+
+.empty {
+  text-align: center;
+  color: teal;
+}
+
+.select {
+  margin: 0 10px;
+}
+
+.filter:active {
+  border: 3px solid red;
+}

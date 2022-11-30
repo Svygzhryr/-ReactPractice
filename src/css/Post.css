@@ -1,13 +1,15 @@
 .post {
-    border: gold 3px solid;
-    margin: 10px 0;
+    border: teal 3px solid;
+    margin: 10px 10px;
 }
 
 .post__content {
-    font-size: 20px;
+    font-size: 20px;    
     font-weight: 700;
+    padding: 10px;
 }
 
 .post__btns {
-
+    text-align: right;
+    margin-top: -10px;
 }

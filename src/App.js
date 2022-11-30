@@ -1,36 +1,49 @@
 import './css/App.css';
-import { useRef, useState } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import PostList from './components/PostList';
-import MyButton from './UI/button/MyButton';
-import MyInput from './UI/input/MyInput';
+import PostForm from './components/PostForm';
+import PostFilter from './components/PostFilter';
+import MyModal from './UI/MyModal/MyModal';
 
 function App() {
 
-  const [post, setPost] = useState([
+  const [posts, setPosts] = useState([
     {id: 1, title: 'Javascript', body: 'Description'},
     {id: 2, title: 'Ruby', body: 'Description'},
     {id: 3, title: 'Lua', body: 'Description'},
   ])
 
-  const [title, setTitle] = useState('');
-  const bodyInputRef = useRef();
+  const [filter, setFilter] = useState({sort: '', query: ''});
 
-  function addNewPost(e) {
-    e.preventDefault();
-    console.log(title)
-    console.log(bodyInputRef.current.value)
+  const sortedPosts = useMemo(() => {
+    if(filter.sort) {
+      return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
+    } return posts
+  }, [filter.sort, posts])
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
+  }, [filter.query, sortedPosts])
+
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  }
+  
+   const removePost = (post) => {
+    setPosts(posts.filter(p => p.id !== post.id));
   }
 
   return (
     <div className='App'>
-      <form>
-        {/* Управляемый компонент */}
-        <MyInput onChange={e => setTitle(e.target.value)} value={title} type="text" placeholder="Название поста"></MyInput>
-        {/* Неуправляемый компонент */}
-        <MyInput ref={bodyInputRef} type="text" placeholder="Описание поста"></MyInput>
-        <MyButton onClick={addNewPost}>Создать пост</MyButton>
-      </form>
-      <PostList post={post} title="Посты про JS"/>
+      <MyModal>
+        <PostForm create={createPost}/>
+      </MyModal>
+      <hr style={{margin: '15px 10px'}}></hr>
+      <PostFilter 
+      filter={filter} 
+      setFilter={setFilter}
+      />
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Посты про JS" />
     </div>
   );
 }
