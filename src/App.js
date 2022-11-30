@@ -14,6 +14,7 @@ function App() {
   ])
 
   const [filter, setFilter] = useState({sort: '', query: ''});
+  const [modal, setModal] = useState(false);
 
   const sortedPosts = useMemo(() => {
     if(filter.sort) {
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <div className='App'>
-      <MyModal>
+      <MyModal visible={true}>
         <PostForm create={createPost}/>
       </MyModal>
       <hr style={{margin: '15px 10px'}}></hr>
