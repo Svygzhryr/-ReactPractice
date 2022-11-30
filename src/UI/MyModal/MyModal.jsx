@@ -9,8 +9,8 @@ export default function MyModal({children, visible, setVisible}) {
   }
 
   return (
-    <div className={[cl.myModal, cl.active].join(' ')}>
-      <div className={cl.myModalContent}>
+    <div onClick={() => {setVisible(false)}} className={rootClasses.join(' ')}>
+      <div className={cl.myModalContent} onClick={e => e.stopPropagation()}>
           {children}
       </div>
     </div>
