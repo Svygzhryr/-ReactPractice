@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+body {
+  background-color: rgb(22, 22, 22);
+}
+
+#root {
+}
+
 button {
   margin: 10px;
 }
@@ -24,7 +31,7 @@ button {
 
 .empty {
   text-align: center;
-  color: teal;
+  color: rgb(230, 230, 230);
 }
 
 .select {
@@ -51,4 +58,8 @@ opacity: 1;
 .post-exit-active {
   transform: translateX(-100%);
   transition: all 500ms ease-in
+}
+
+h1 {
+  color: rgb(230, 230, 230) 
 }

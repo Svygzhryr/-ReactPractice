@@ -4,6 +4,7 @@
     border-radius: 50%;
     border: 5px dashed teal;
     animation: rotate 8s infinite linear;
+    
 }
 
 @keyframes rotate {
