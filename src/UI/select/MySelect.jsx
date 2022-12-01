@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function MySelect({options, defaultValue, value, onChange}) {
   return (
-    <select value={value} onChange={event => onChange(event.target.value)}>
-        <option disabled value="">{defaultValue}</option>
+    <select style={{backgroundColor: 'rgb(22, 22, 22)', border: 'none', color: 'white'}} value={value} onChange={event => onChange(event.target.value)}>
+        <option style={{color:'grb(230, 230, 230)'}} disabled value="">{defaultValue}</option>
         {options.map(option => 
-            <option key={option.value} value={option.value}>
+            <option style={{color: 'grb(230, 230, 230)'}} key={option.value} value={option.value}>
                 {option.name}
             </option>
         )}

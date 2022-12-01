@@ -1,12 +1,14 @@
 .post {
-    border: teal 3px solid;
     margin: 10px 10px;
+    border-radius: 20px;
+    background-color: rgb(44, 38, 1);
 }
 
 .post__content {
     font-size: 20px;    
-    font-weight: 700;
+    font-weight: 500;
     padding: 10px;
+    color: rgb(230, 230, 230)
 }
 
 .post__btns {
