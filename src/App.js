@@ -6,12 +6,12 @@ import PostForm from './components/PostForm';
 import PostFilter from './components/PostFilter';
 import MyModal from './UI/MyModal/MyModal';
 import MyButton from './UI/button/MyButton'
-import axios from 'axios';
 import PostService from './API/PostService';
 import Loader from './UI/Loader/Loader';
 import { useFetching } from './hooks/useFetching';
 import { getPagesArray } from './utils/pages';
 import { getPageCount } from './utils/pages';
+import Pagination from './UI/pagination/Pagination';
 
 function App() {
 
@@ -69,14 +69,7 @@ function App() {
       ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50, fontSize: '20px', fontWeight: "700", color: "teal"}}>Is Loading<Loader/></div>
       : <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Посты про JS" />
       }
-      <div className='page__wrapper'>
-          {pagesArray.map(p => 
-            <span
-            onClick={() => changePage(p)}
-            key={p}
-            className={page === p ? 'page__current' : 'page'}>{p}</span>
-          )}
-      </div>
+      <Pagination page={page} changePage={changePage} totalPages={totalPages}></Pagination>
     </div>
   );
 }
