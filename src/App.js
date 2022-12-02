@@ -32,8 +32,8 @@ function App() {
 
   const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
     const response = await PostService.getAll(limit, page);
-    const totalCount = setPosts(response.data);
-    setTotalPages(response.headers['x-total-count']);
+    setPosts(response.data);
+    const totalCount = response.headers['x-total-count']
     setTotalPages(getPageCount(totalCount, limit))
   })
   
@@ -43,7 +43,11 @@ function App() {
 
   useEffect(() => {
     fetchPosts();
-  }, [])
+  }, [page])
+
+  const changePage = (page) => {
+    setPage(page);
+  }
 
 
   return (
@@ -65,9 +69,14 @@ function App() {
       ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50, fontSize: '20px', fontWeight: "700", color: "teal"}}>Is Loading<Loader/></div>
       : <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Посты про JS" />
       }
-      {pagesArray.map(p => 
-        <MyButton>{p}</MyButton>
-      )}
+      <div className='page__wrapper'>
+          {pagesArray.map(p => 
+            <span
+            onClick={() => changePage(p)}
+            key={p}
+            className={page === p ? 'page__current' : 'page'}>{p}</span>
+          )}
+      </div>
     </div>
   );
 }
