@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import '../css/Post.css'
 import MyButton from '../UI/button/MyButton'
+import { useNavigate } from 'react-router-dom';
 
 export default function Post(props) {
 
-    const [del, setDel] = useState();
+    const router = useNavigate();
         
   return (
     <div className='post'>
@@ -13,6 +14,9 @@ export default function Post(props) {
             <div>{props.posts.body}</div>
             <div className='post__btns'>
             <MyButton onClick={() => {props.remove(props.posts)}}>Удалить</MyButton>
+        </div>
+        <div className='post__btns'>
+            <MyButton onClick={() => {props.remove(props.posts)}}>Открыть</MyButton>
         </div>
         </div>
     </div>

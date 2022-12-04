@@ -1,17 +1,17 @@
-import './css/App.css';
+import '../css/App.css';
 import { useRef, useMemo, useState, useEffect } from 'react';
-import { usePosts } from './hooks/usePosts';
-import PostList from './components/PostList';
-import PostForm from './components/PostForm';
-import PostFilter from './components/PostFilter';
-import MyModal from './UI/MyModal/MyModal';
-import MyButton from './UI/button/MyButton'
-import PostService from './API/PostService';
-import Loader from './UI/Loader/Loader';
-import { useFetching } from './hooks/useFetching';
-import { getPagesArray } from './utils/pages';
-import { getPageCount } from './utils/pages';
-import Pagination from './UI/pagination/Pagination';
+import { usePosts } from '../hooks/usePosts';
+import PostList from '../components/PostList';
+import PostForm from '../components/PostForm';
+import PostFilter from '../components/PostFilter';
+import MyModal from '../UI/MyModal/MyModal';
+import MyButton from '../UI/button/MyButton'
+import PostService from '../API/PostService';
+import Loader from '../UI/Loader/Loader';
+import { useFetching } from '../hooks/useFetching';
+import { getPagesArray } from '../utils/pages';
+import { getPageCount } from '../utils/pages';
+import Pagination from '../UI/pagination/Pagination';
 
 function Posts() {
 
