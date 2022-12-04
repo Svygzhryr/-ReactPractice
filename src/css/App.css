@@ -9,6 +9,9 @@ body {
 }
 
 #root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
@@ -98,4 +101,19 @@ h1 {
   background-color: rgb(230, 230, 230);
   color: rgb(22, 22, 22);
   cursor: pointer;
+}
+
+.navbar {
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: rgb(230, 230, 230);
+}
+
+.navbar__links {
+  margin-left: auto;
+  margin-right: auto;
+  
 }
