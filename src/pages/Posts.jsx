@@ -1,5 +1,5 @@
 import '../css/App.css';
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { usePosts } from '../hooks/usePosts';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
