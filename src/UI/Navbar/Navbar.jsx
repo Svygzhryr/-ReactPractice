@@ -5,8 +5,8 @@ export default function Navbar() {
   return (
     <div className='navbar'>
     <div className='navbar__links'>
-       <Link to='/about'>О сайте</Link>
-       <Link to='/posts'>Посты</Link>
+       <Link style={{margin: '0 10px'}} to='/about'>О сайте</Link>
+       <Link style={{margin: '0 10px'}} to='/posts'>Посты</Link>
     </div>
   </div>
   )

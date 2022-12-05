@@ -14,9 +14,7 @@ export default function Post(props) {
             <div>{props.posts.body}</div>
             <div className='post__btns'>
             <MyButton onClick={() => {props.remove(props.posts)}}>Удалить</MyButton>
-        </div>
-        <div className='post__btns'>
-            <MyButton onClick={() => {props.remove(props.posts)}}>Открыть</MyButton>
+            <MyButton onClick={() => {router(`/posts/${props.posts.id}`)}}>Открыть</MyButton>
         </div>
         </div>
     </div>
