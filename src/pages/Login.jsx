@@ -11,8 +11,8 @@ export default function Login() {
     const login = event => {
         event.preventDefault();
         setIsAuth(true);
-        navigate('/posts');
         localStorage.setItem('auth', 'true');
+        navigate('/posts');
     }
     const navigate = useNavigate();
   return (
