@@ -10,11 +10,11 @@ export default function PostIdPage() {
     const [post, setPost] = useState({});
     const [comments, setComments] = useState([])
     const [fetchPostById, isLoading, error] = useFetching(async (id) => {
-        const response = await PostService.getById(id)
+        const response = await PostService.getById(params.id)
         setPost(response.data)
     })
     const [fetchComments, isComLoading, comError] = useFetching(async (id) => {
-      const response = await PostService.getCommentsByPostIdd(id)
+      const response = await PostService.getCommentsByPostId(params.id)
       setComments(response.data)
   })
     useEffect(() => {
@@ -27,14 +27,15 @@ export default function PostIdPage() {
         <h1 style={{textAlign: 'center'}}>Вы открыли страницу поста #{params.id}</h1>
         {isLoading
         ? <Loader/>
-        : <div style={{fontSize: '22px', color: 'white'}}>{post.id}. {post.title}</div>
+        : <div style={{fontSize: '22px', color: 'white', textAlign: 'center'}}>{post.id}. {post.title}</div>
         }
-        <h1>Каменты:</h1>
+        <h1 style={{textAlign: 'center'}}>Каменты:</h1>
         {isComLoading
         ? <Loader/>
         : <div>
           {comments.map(comm => 
-            <div style={{marginTop: '15'}}>
+            
+            <div style={{margin: '20px 15px', color: 'white'}}>
                 <h5>{comm.email}</h5>
                 <div>{comm.body}</div>
             </div>
