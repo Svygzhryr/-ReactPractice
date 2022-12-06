@@ -4,13 +4,17 @@ import MyButton from '../UI/button/MyButton'
 import isAuth from '../components/Approuter'
 import { useContext } from 'react'
 import { AuthContext } from '../context'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function Login() {
     const {iaAuth, setIsAuth} = useContext(AuthContext)
     const login = event => {
-        event.preventDefault()
+        event.preventDefault();
         setIsAuth(true);
+        navigate('/posts');
+        localStorage.setItem('auth', 'true');
     }
+    const navigate = useNavigate();
   return (
     <div>       
         <h1>Страница для логина</h1>
