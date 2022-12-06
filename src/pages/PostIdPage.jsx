@@ -35,7 +35,7 @@ export default function PostIdPage() {
         : <div>
           {comments.map(comm => 
             
-            <div style={{margin: '20px 15px', color: 'white'}}>
+            <div key={comm.id} style={{margin: '20px 15px', color: 'white'}}>
                 <h5>{comm.email}</h5>
                 <div>{comm.body}</div>
             </div>
